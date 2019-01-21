@@ -4,17 +4,17 @@
 # Set the edition of GEOS-Chem to be run (CLASSIC or GCHP) and the compiler
 # toolchain to be used (GNU or INTEL).
 ################################################################################
-EDITION="CLASSIS"
+EDITION="CLASSIC"
 TOOLCHAIN="GNU"
 
 if ! [[ ${EDITION} == "CLASSIC" || ${EDITION} == "GCHP" ]]; then
   echo "YOU MUST SPECIFY EITHER CLASSIC OR GCHP FOR EDITION - EXITING"
-  exit 1
+  return
 fi
 
 if ! [[ ${TOOLCHAIN} == "GNU" || ${TOOLCHAIN} == "INTEL" ]]; then
   echo "YOU MUST SPECIFY EITHER GNU OR INTEL FOR TOOLCHAIN - EXITING"
-  exit 1
+  return
 fi
 
 echo "SETTING UP ENVIRONMENT FOR ${EDITION} USING ${TOOLCHAIN} TOOLCHAIN"
