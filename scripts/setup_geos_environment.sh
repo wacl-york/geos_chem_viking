@@ -105,6 +105,10 @@ fi
 if [[ ${EDITION} == "GCHP" ]]; then
   export ESMF_BOPT="O"
   export ESMF_COMPILER="${FC}"
-  export ESMF_COMM="openmpi"
+  if [[ ${TOOLCHAIN} == "GNU" ]]; then
+    export ESMF_COMM="openmpi"
+  else
+    export ESMF_COMM="intelmpi"
+  fi
   export MPI_ROOT="$(dirname $(dirname $(command -v mpicc)))"
 fi
