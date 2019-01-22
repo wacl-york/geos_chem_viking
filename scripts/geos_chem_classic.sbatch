@@ -82,7 +82,7 @@
 #===============================================================================
 
 # CHANGE TO GEOS-Chem run directory, assuming job was submitted from there:
-cd "${SLURM_SUBMIT_DIR}" || echo "ERROR: UNABLE TO CHANGE TO RUN DIRECTORY" && exit 1
+cd "${SLURM_SUBMIT_DIR}" || exit 1
 
 # Set OpenMP thread count to number of cores requested for job:
 export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
