@@ -5,7 +5,7 @@
 # toolchain to be used (GNU or INTEL).
 ################################################################################
 EDITION="CLASSIC"
-TOOLCHAIN="GNU"
+TOOLCHAIN="INTEL"
 
 if ! [[ ${EDITION} == "CLASSIC" || ${EDITION} == "GCHP" ]]; then
   echo "YOU MUST SPECIFY EITHER CLASSIC OR GCHP FOR EDITION - EXITING"
