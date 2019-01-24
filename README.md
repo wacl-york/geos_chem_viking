@@ -68,7 +68,13 @@ Once you are happy with the contents of the run script, you can submit the job t
 sbatch geos_chem_classic.sbatch
 ```
 
-You should now have a model run queued on Viking!
+You should now have a model run queued on Viking! If you want to check the status of your Viking jobs, you can run the following:
+
+```bash
+squeue -u USERNAME
+```
+
+This will show you basic information about your jobs. If your jobs are queued and you want an estimate of their start time, you can add the `--start` flag to the above command. Note that Slurm may not always be able to give you an idea of your start time.
 
 ## Support & Troubleshooting
 You can contact me at <killian.murphy@york.ac.uk> in the event of any issues with your jobs, or if you would like to go through the initial setup and first run submission on Viking.
