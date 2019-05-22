@@ -21,7 +21,7 @@
 #                 benchmarking and Viking architecture, 20 cores is a sensible
 #                 number of cores to guarantee good model performance.
 #-------------------------------------------------------------------------------
-#SBATCH --cpus-per-task=20
+#SBATCH --cpus-per-task=16
 
 #-------------------------------------------------------------------------------
 # mem-per-cpu - The amount of memory to be allocated per core used for your
@@ -29,7 +29,7 @@
 #               when using this option, and 2GB per core is more than enough
 #               for standard GEOS-Chem runs.
 #-------------------------------------------------------------------------------
-#SBATCH --mem-per-cpu=2GB
+#SBATCH --mem-per-cpu=1GB
 
 #-------------------------------------------------------------------------------
 # time - Maximum wallclock time to be consumed by your job, in the format
