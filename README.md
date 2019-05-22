@@ -76,5 +76,15 @@ squeue -u USERNAME
 
 This will show you basic information about your jobs. If your jobs are queued and you want an estimate of their start time, you can add the `--start` flag to the above command. Note that Slurm may not always be able to give you an idea of your start time.
 
+## Building KPP on Viking
+In order to build KPP on Viking, you need to load certain environment modules. Specifically, these are a compiler toolchain and [Flex](https://github.com/westes/flex), the Fast Lexical Anlyser Generator. For example:
+
+```
+module load toolchain/foss/2018b
+module load lang/flex
+```
+
+This will give you the FOSS 2018b compiler toolchain (GCC 7.3.0) and the appropriate version of Flex. You can then proceed to build KPP as you usually would. Note that you are not bound to the `foss/2018b` toolchain, you can use others (e.g. Intel) if you'd like to.
+
 ## Support & Troubleshooting
 You can contact me at <killian.murphy@york.ac.uk> in the event of any issues with your jobs, or if you would like to go through the initial setup and first run submission on Viking.
