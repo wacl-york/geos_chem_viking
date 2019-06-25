@@ -47,7 +47,7 @@
 #          Any directory into which logs are being written must exist before
 #          running your job.
 #-------------------------------------------------------------------------------
-#SBATCH --output=%x.log
+#SBATCH --output=%x.geos.log
 
 #-------------------------------------------------------------------------------
 # partition - The SLURM partition to use for your job. SLURM partitions are
