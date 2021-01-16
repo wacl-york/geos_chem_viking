@@ -32,7 +32,8 @@ if [[ ${TOOLCHAIN} == "GNU" ]]; then
 else
   module load data/netCDF-Fortran/4.4.4-intel-2018b
 fi
-module load tools/git
+module load tools/git/2.19.1-GCCcore-7.3.0
+module load lang/flex/2.6.4-GCCcore-7.3.0
 ################################################################################
 # COMPILER VARIABLES
 #-------------------------------------------------------------------------------
