@@ -4,20 +4,14 @@
 # Set the edition of GEOS-Chem to be run (CLASSIC or GCHP) and the compiler
 # toolchain to be used (GNU or INTEL).
 ################################################################################
-EDITION="CLASSIC"
 TOOLCHAIN="INTEL"
-
-if ! [[ ${EDITION} == "CLASSIC" || ${EDITION} == "GCHP" ]]; then
-  echo "YOU MUST SPECIFY EITHER CLASSIC OR GCHP FOR EDITION - EXITING"
-  return
-fi
 
 if ! [[ ${TOOLCHAIN} == "GNU" || ${TOOLCHAIN} == "INTEL" ]]; then
   echo "YOU MUST SPECIFY EITHER GNU OR INTEL FOR TOOLCHAIN - EXITING"
   return
 fi
 
-echo "SETTING UP ENVIRONMENT FOR ${EDITION} USING ${TOOLCHAIN} TOOLCHAIN"
+echo "SETTING UP ENVIRONMENT USING ${TOOLCHAIN} TOOLCHAIN"
 ################################################################################
 # ENVIRONMENT MODULES
 #-------------------------------------------------------------------------------
@@ -51,12 +45,6 @@ else
 fi
 
 export COMPILER="${FC}"
-
-if [[ ${EDITION} == "GCHP" ]]; then
-  export OMPI_CC="${CC}"
-  export OMPI_CXX="${CXX}"
-  export OMPI_FC="${FC}"
-fi
 ################################################################################
 # HDF5 LIBRARY VARIABLES
 #-------------------------------------------------------------------------------
@@ -82,34 +70,10 @@ export GC_F_LIB="$GC_F_BASE/lib"
 #-------------------------------------------------------------------------------
 # These must be set before running GEOS-Chem Classic.
 ################################################################################
-if [[ ${EDITION} == "CLASSIC" ]]; then
-  export OMP_STACKSIZE=500m
-fi
+export OMP_STACKSIZE=500m
 ################################################################################
 # USER LIMIT VARIABLES
 #-------------------------------------------------------------------------------
 #
 ################################################################################
-if [[ ${EDITION} == "CLASSIC" ]]; then
-  ulimit -s unlimited
-else
-  ulimit -c unlimited
-  ulimit -l unlimited
-  ulimit -u 50000
-  ulimit -v unlimited
-fi
-################################################################################
-# ESMF VARIABLES
-#-------------------------------------------------------------------------------
-#
-################################################################################
-if [[ ${EDITION} == "GCHP" ]]; then
-  export ESMF_BOPT="O"
-  export ESMF_COMPILER="${FC}"
-  if [[ ${TOOLCHAIN} == "GNU" ]]; then
-    export ESMF_COMM="openmpi"
-  else
-    export ESMF_COMM="intelmpi"
-  fi
-  export MPI_ROOT="$(dirname $(dirname $(command -v mpicc)))"
-fi
+ulimit -s unlimited
