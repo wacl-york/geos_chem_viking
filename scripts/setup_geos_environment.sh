@@ -22,12 +22,13 @@ echo "SETTING UP ENVIRONMENT USING ${TOOLCHAIN} TOOLCHAIN"
 ################################################################################
 module purge
 if [[ ${TOOLCHAIN} == "GNU" ]]; then
-  module load data/netCDF-Fortran/4.4.4-foss-2018b
+  module load data/netCDF-Fortran/4.5.3-gompi-2021a
 else
-  module load data/netCDF-Fortran/4.4.4-intel-2018b
+  module load data/netCDF-Fortran/4.5.3-iimpi-2021a
 fi
-module load tools/git/2.19.1-GCCcore-7.3.0
-module load lang/flex/2.6.4-GCCcore-7.3.0
+module load tools/git/2.32.0-GCCcore-10.3.0-nodocs
+module load lang/flex/2.6.4-GCCcore-10.3.0
+module load devel/CMake/3.20.1-GCCcore-10.3.0
 ################################################################################
 # COMPILER VARIABLES
 #-------------------------------------------------------------------------------
